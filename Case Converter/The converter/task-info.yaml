@@ -117,6 +117,9 @@ files:
     </body>
     </html>
   learner_created: false
+- name: src/style.css
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/193/stages/962/implement#comment
 status: Solved
 feedback:

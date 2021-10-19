@@ -1,0 +1,35 @@
+body {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+.mainContainer {
+    display: flex;
+    flex-flow: column;
+}
+
+.mainBlock {
+    margin: 5px 0;
+}
+
+label {
+    display: flex;
+    flex-flow: column;
+}
+
+textarea {
+    height: 300px;
+}
+
+.buttonsPanel {
+    display: flex;
+    flex-flow: wrap row;
+}
+
+button {
+    border: none;
+    padding: 5px 8px;
+    margin-right: 5px;
+    background-color: #ffa07a;
+    border-radius: 3px;
+    font-size: 15px;
+}
