@@ -24,7 +24,25 @@ const sentencesCaseButtonListener = () => {
     setText(updatedText);
 }
 
+const download = (fileName, text) => {
+    let element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', fileName);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+
+const saveTextFileListener = () => {
+    download("text.txt", getText())
+}
+
 document.querySelector("#upper-case").addEventListener("click", upperCaseButtonListener);
 document.querySelector("#lower-case").addEventListener("click", lowerCaseButtonListener);
 document.querySelector("#proper-case").addEventListener("click", properCaseButtonListener);
 document.querySelector("#sentence-case").addEventListener("click", sentencesCaseButtonListener);
+document.querySelector("#save-text-file").addEventListener("click", saveTextFileListener);
