@@ -1,9 +1,6 @@
-const getText = () => {
-    return document.querySelector("textarea").value;
-}
-const setText = (newText) => {
-    document.querySelector("textarea").value = newText;
-}
+const getText = () => document.querySelector("textarea").value;
+
+const setText = (newText) => document.querySelector("textarea").value = newText;
 
 const upperCaseButtonListener = () => {
     const updatedText = getText().toUpperCase();
@@ -14,30 +11,17 @@ const lowerCaseButtonListener = () => {
     const updatedText = getText().toLowerCase();
     setText(updatedText);
 }
+const firstAlphaUpper = (item) => item.length > 0 ? item.toLowerCase().replace(/\w/, x => x.toUpperCase()) : item;
 
 const properCaseButtonListener = () => {
-    let sentences = getText().split('.')
-    sentences.forEach((sentence, index, sentenceArr) => {
-        let words = sentence.split(' ');
-        words.forEach((word, index, wordArr) => {
-            if (word.length > 0) wordArr[index] = word.toLowerCase()
-                .replace(/\w/, x => x.toUpperCase());
-        });
-        sentenceArr[index] = words.join(' ');
-    });
-    const updatedText = sentences.join('.');
+    let updatedText = getText().split('.')
+        .map(sentence => sentence.length > 0 ? sentence.split(' ').map(firstAlphaUpper).join(' ') : sentence)
+        .join('.');
     setText(updatedText);
 }
 
 const sentencesCaseButtonListener = () => {
-    let sentences = getText().split('.')
-    sentences.forEach((item, index, arr) => {
-        if (item.length > 0) {
-            arr[index] = item.toLowerCase()
-                .replace(/\w/,  x => x.toUpperCase());
-        }
-    });
-    const updatedText = sentences.join('.');
+    let updatedText = getText().split('.').map(firstAlphaUpper).join('.');
     setText(updatedText);
 }
 
