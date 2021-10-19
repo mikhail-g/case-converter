@@ -166,6 +166,51 @@ files:
         }
     );
   learner_created: false
+- name: src/style.css
+  visible: true
+  text: |-
+    body {
+        font-family: "Helvetica Neue", sans-serif;
+    }
+
+    .mainContainer {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .mainBlock {
+        margin: 5px 0;
+    }
+
+    label {
+        display: flex;
+        flex-flow: column;
+    }
+
+    textarea {
+        height: 300px;
+    }
+
+    .buttonsPanel {
+        display: flex;
+        flex-flow: wrap row;
+    }
+
+    button {
+        border: none;
+        padding: 5px 8px;
+        margin-right: 5px;
+        background-color: #ffa07a;
+        border-radius: 3px;
+        font-size: 15px;
+    }
+  learner_created: true
+- name: src/listeners.js
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/193/stages/963/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 19 Oct 2021 13:09:03 UTC
 record: 2
