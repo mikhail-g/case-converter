@@ -11,17 +11,16 @@ const lowerCaseButtonListener = () => {
     const updatedText = getText().toLowerCase();
     setText(updatedText);
 }
-const firstAlphaUpper = (item) => item.length > 0 ? item.toLowerCase().replace(/\w/, x => x.toUpperCase()) : item;
+
+const firstLetterToUpperAndRestToLowerCase = () => (_, first, rest) => first.toUpperCase() + rest.toLowerCase();
 
 const properCaseButtonListener = () => {
-    let updatedText = getText().split('.')
-        .map(sentence => sentence.length > 0 ? sentence.split(' ').map(firstAlphaUpper).join(' ') : sentence)
-        .join('.');
+    let updatedText = getText().replace(/(\w)([\w']*\W*)/g, firstLetterToUpperAndRestToLowerCase());
     setText(updatedText);
 }
 
 const sentencesCaseButtonListener = () => {
-    let updatedText = getText().split('.').map(firstAlphaUpper).join('.');
+    let updatedText = getText().replace(/(\w)([^.]*\.?)/g, firstLetterToUpperAndRestToLowerCase());
     setText(updatedText);
 }
 

@@ -220,6 +220,86 @@ files:
         }
     );
   learner_created: false
+- name: src/listeners.js
+  visible: true
+  text: |
+    const getText = () => document.querySelector("textarea").value;
+
+    const setText = (newText) => document.querySelector("textarea").value = newText;
+
+    const upperCaseButtonListener = () => {
+        const updatedText = getText().toUpperCase();
+        setText(updatedText);
+    }
+
+    const lowerCaseButtonListener = () => {
+        const updatedText = getText().toLowerCase();
+        setText(updatedText);
+    }
+    const firstAlphaUpper = (item) => item.length > 0 ? item.toLowerCase().replace(/\w/, x => x.toUpperCase()) : item;
+
+    const properCaseButtonListener = () => {
+        let updatedText = getText().split('.')
+            .map(sentence => sentence.length > 0 ? sentence.split(' ').map(firstAlphaUpper).join(' ') : sentence)
+            .join('.');
+        setText(updatedText);
+    }
+
+    const sentencesCaseButtonListener = () => {
+        let updatedText = getText().split('.').map(firstAlphaUpper).join('.');
+        setText(updatedText);
+    }
+
+    document.querySelector("#upper-case").addEventListener("click", upperCaseButtonListener);
+    document.querySelector("#lower-case").addEventListener("click", lowerCaseButtonListener);
+    document.querySelector("#proper-case").addEventListener("click", properCaseButtonListener);
+    document.querySelector("#sentence-case").addEventListener("click", sentencesCaseButtonListener);
+  learner_created: true
+- name: src/style.css
+  visible: true
+  text: |-
+    body {
+        font-family: "Helvetica Neue", sans-serif;
+    }
+
+    .mainContainer {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .mainBlock {
+        margin: 5px 0;
+    }
+
+    label {
+        display: flex;
+        flex-flow: column;
+    }
+
+    textarea {
+        height: 300px;
+    }
+
+    .buttonsPanel {
+        display: flex;
+        flex-flow: wrap row;
+    }
+
+    button {
+        border: none;
+        padding: 5px 8px;
+        margin-right: 5px;
+        background-color: #ffa07a;
+        border-radius: 3px;
+        font-size: 15px;
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/193/stages/964/implement#comment
-status: Unchecked
-record: -1
+status: Failed
+feedback:
+  message: |-
+    Error: Failed: "Wrong answer in test #3
+
+    Can't find a button with '#save-text-file' id!"
+  time: Tue, 19 Oct 2021 15:22:50 UTC
+record: 3
